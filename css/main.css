@@ -1,0 +1,79 @@
+body {
+  font-family: monospace;
+  font-size: 24px;
+  text-align: center;
+  background: black;
+  color: black;
+  margin: 3em;
+  background-image: url("https://media.giphy.com/media/kWJlSWnPgdlba/giphy.gif");
+  background-size: 90%;
+  background-position: top,center;
+  background-repeat: no-repeat;
+}
+strong {
+  text-decoration: underline;
+}
+button {
+  background: red;
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  font-family: monospace;
+  font-weight: bold;
+}
+button:active {
+  background: red;
+}
+h1{
+  font-size: 30px;
+}
+p{
+  border: 3px solid red;
+  background-color: rgba(167,87,82,0.5);
+  font-size: 20px;
+}
+.insBlock{
+  margin-top: -70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.insBlockText{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 70px;
+}
+.score {
+  width: 14em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border: 3px solid red;
+  background-color: rgba(167,87,82,0.5);
+}
+.score h2 {
+  border-bottom: 1px solid red;
+  margin: 0;
+  padding: 10px;
+  font-size: 25px;
+}
+.score table {
+  margin: 10px auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+.score th, .score td {
+  text-align: center;
+}
+.score td {
+  font-size: 3em;
+  padding: 0 20px;
+}
+
+#status {
+  margin-top: 20px;
+  color: red;
+  font-size: 40px;
+}
