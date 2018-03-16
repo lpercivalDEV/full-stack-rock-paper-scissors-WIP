@@ -1,6 +1,3 @@
-
-
-
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
@@ -21,32 +18,28 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static('public'))
 
-//attempt to replace get request below with an ajax request so the whole page does not refresh and restart the player
-// ajax.get('/',(req,res)=>{
-//     var messages=db.collection('messages').find();
-//     messages.toArray((err,res)=>{
-//         if(err) return console.log(err)
-//         result.forEach(function(element){
-//             element.total = element.thumbUp - element.thumbDown;
-//         })
-//         res.render('index.ejs', {messages: result})
-//     })
-// })
 
 //express get request that requests object from database
 app.get('/', (req, res) => {
   var messages = db.collection('scores').find();
   messages.toArray((err, result) => {
     if (err) return console.log(err)
-    // result.forEach(function(element) {
-    //     element.total = element.thumbUp - element.thumbDown;
-    // });
-    res.render('index.html', {messages: result})
+
+    res.render('index.ejs', {messages: result})
   })
 })
 
+// app.get('/scores', (req, res) => {
+//   var messages = db.collection('scores').find({name: req.body.name,});
+//   messages.toArray((err, result) => {
+//     if (err) return console.log(err)
+//
+//     res.JSON(result)
+//   })
+// })
+
 app.post('/scores', (req, res) => {
-  db.collection('scores').save({computerWin: 0, humanWin: 0}, (err, result) => {
+  db.collection('scores').save({name:req.body.name, computerWin: 0, humanWin: 0, humanPlay: null, botsWeapon: null}, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
     res.redirect('/')
@@ -54,11 +47,14 @@ app.post('/scores', (req, res) => {
 })
 
 app.put('/scores', (req, res) => {
+    console.log(req.body)
   db.collection('scores')
-  .findOneAndUpdate({computerWin: req.body.td, humanWin: req.body.humanScore}, {
-    $inc: {
-      humanWin: 1
-    }
+  .findOneAndUpdate({name:req.body.name}, {
+     name: req.body.name,
+     computerWin: req.body.computerScore,
+     humanWin: req.body.humanScore,
+     botsWeapon: req.body.botsWeapon,
+     playersWeapon: req.body.humanPlay
   }, {
     sort: {_id: -1},
     upsert: true
@@ -67,26 +63,11 @@ app.put('/scores', (req, res) => {
     res.send(result)
   })
 })
-
-app.put('/scores2', (req, res) => {
-  db.collection('scores')
-  .findOneAndUpdate({computerWin: req.body.computerScore, humanWin: req.body.humanScore}, {
-    $inc: {
-        computerWin: 1
-    }
-  }, {
-    sort: {_id: -1},
-    upsert: true
-  }, (err, result) => {
-    if (err) return res.send(err)
-    res.send(result)
-  })
-})
-
-
-app.delete('/messages', (req, res) => {
-  db.collection('messages').findOneAndDelete({computerWin: req.body.computerScore, humanWin: req.body.humanScore}, (err, result) => {
-    if (err) return res.send(500, err)
-    res.send('Score deleted!')
-  })
-})
+//
+//
+// app.delete('/messages', (req, res) => {
+//   db.collection('messages').findOneAndDelete({name:req.body.name, computerWin: req.body.computerScore, humanWin: req.body.humanScore}, (err, result) => {
+//     if (err) return res.send(500, err)
+//     res.send('Score deleted!')
+//   })
+// })

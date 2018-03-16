@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ROCK PAPER SCISSORS</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <section class="insBlock">
+    <h1>Rock, Paper, or Scissors?</h1>
+    <p class="insBlockText">Zeus has challenged you to a game of <strong>Life or Death ROCK PAPER SCISSORS</strong>! <strong>Rock</strong> beats <strong>scissors</strong>, <strong>scissors</strong> beats <strong>paper</strong>, and <strong>paper</strong> beats <strong>rock</strong>. <strong>FIGHT FOR YOUR LIFE!</strong></p>
+  </section>
+
+
+<section class="score">
+  <h2>Scoreboard</h2>
+  <table>
+    <tbody>
+      <tr>
+        <td id="humanScore">0</td>
+        <td id="computerScore">0</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th>You</th>
+        <th>Zeus</th>
+      </tr>
+    </tfoot>
+  </table>
+</section>
+
+<input id="name" type="text" name="name" placeholder="Enter your name...">
+<button id="submit" type="button" name="button">Submit</button>
+
+<h2>Choose Wisely, PUNY MORTAL!</h2>
+
+<button class="userChoice" id="rock">Rock</button>
+<button class="userChoice" id="paper">Paper</button>
+<button class="userChoice" id="scissors">Scissors</button>
+<button class="userChoice" id="Spock">Spock</button>
+<button class="userChoice" id="lizard">Lizard</button>
+<section class="userChoice" id="status"></section>
+
+<section class="log">
+
+</section>
+
+<audio controls loop autoplay hidden>
+ <source src="ofortuna.mp3" type="audio/ogg">
+ <source src="ofortuna.mp3" type="audio/mpeg">
+ Your browser does not support the audio element.
+</audio>
+</body>
+
+
+<script src="js/main.js"></script>
+<script type="text/javascript" src="server.js">
+
+</script>
+</html>
