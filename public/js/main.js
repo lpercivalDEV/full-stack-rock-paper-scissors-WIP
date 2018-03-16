@@ -2,7 +2,7 @@
 var human = document.getElementById("humanScore");
 var computer = document.getElementById("computerScore");
 var userChoice = document.getElementsByClassName("userChoice");
-var name = document.getElementById("name");
+var name = document.getElementById("name").value;
 var submit = document.getElementById("submit");
 
 Array.from(userChoice).forEach(function(element) {
@@ -10,34 +10,33 @@ Array.from(userChoice).forEach(function(element) {
 });
 
 
-
 // ------------------------------------
 
-// submit.addEventListener('click',function(){
-    // if(!name.valueOf()){
-    //     alert("Enter your name.")
-    //     return
-    // }
-//     fetch('/scores?name='+name.valueOf(), {
-//       method: 'get',
-//       headers: {'Content-Type': 'application/json'},
-//     })
-//     .then(response => {
-//       if (response.ok) {
-//            human.innerText(response.json().humanScore);
-//            computer.innerText(response.json().computerScore);
-//        }
-//     })
-//     .then(data => {
-//       console.log(data)
-// })
-// })
+submit.addEventListener('click',function(){
+	name = document.getElementById("name").value
+    if(!name.valueOf()){
+        alert("Enter your name.")
+        return
+    }
+    fetch('/scores?name='+name.valueOf(), {
+      method: 'get',
+	  headers: {'Content-Type': 'application/json'},
+    })
+    .then(response => {
+      if (response.ok) {
+           human.innerText(response.json().humanScore);
+           computer.innerText(response.json().computerScore);
+       }
+    })
+    .then(data => {
+      console.log(data)
+	})
+})
 
 var botScore=0,
 	playerScore=0;
 
 function playerThrows(){
-    console.log(name);
     if(!name.valueOf()){
         alert("Enter your name.")
         return
@@ -92,7 +91,7 @@ function checkWhoWon(botsWeapon,playersWeapon){
 	else{
 		increasePlayerScore();
 	}
-    console.log(this);
+    // console.log(this);
     const humanScore = human.innerText
     const computerScore = computer.innerText
     fetch('/scores', {
@@ -112,7 +111,8 @@ function checkWhoWon(botsWeapon,playersWeapon){
     })
     .then(data => {
       console.log(data)
-})}
+	}
+)}
 function increaseBotScore(){
 	botScore+=1;
 	document.getElementById("computerScore").innerHTML=botScore;
