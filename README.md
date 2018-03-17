@@ -1,4 +1,5 @@
 # Rock Paper Scissors
+I turned my simple rps application into a full-stack application using node.js, mongo.db, and express. The scores are now stored in a database when a user plays and when the "submit" button is pressed after play, the user can see their data printed to the console.
 
 ![alt tag](https://github.com/lpercivalDEV/rock-paper-scissors/blob/master/rpsPreview.png)
 
@@ -19,6 +20,7 @@ The final touch is to have an epic score to listen to while you battle against Z
 
 
 ## Optimizations
+I want to transfer the data that is being pulled from the database and print it to the DOM. Currently it is just being logged to the console, but I would prefer if it was printed as a table so that the user can more easily view the data.
 
 This was supposed to be a pretty straightforward and simple application, so I'm pretty satisfied with how it turned out functionality wise.
 
