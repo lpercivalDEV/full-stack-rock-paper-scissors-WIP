@@ -29,14 +29,15 @@ app.get('/', (req, res) => {
   })
 })
 
-// app.get('/scores', (req, res) => {
-//   var messages = db.collection('scores').find({name: req.body.name,});
-//   messages.toArray((err, result) => {
-//     if (err) return console.log(err)
-//
-//     res.JSON(result)
-//   })
-// })
+app.get('/scores', (req, res) => {
+
+  db.collection('scores').find({name: req.body.name,}).toArray(function(err, results) {
+    document.getElementsByClassName("log").innerHTML(results)
+     // console.log(results)
+    res.json(results)
+  })
+
+})
 
 app.post('/scores', (req, res) => {
   db.collection('scores').save({name:req.body.name, computerWin: 0, humanWin: 0, humanPlay: null, botsWeapon: null}, (err, result) => {
