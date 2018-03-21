@@ -4,7 +4,7 @@ I turned my simple rps application into a full-stack application using node.js, 
 ![alt tag](https://github.com/lpercivalDEV/rock-paper-scissors/blob/master/rpsPreview.png)
 
 ## Live Demo:
-https://full-stack-rock-paper-scissors.herokuapp.com
+https://full-stack-rock-paper-scissors.herokuapp.com/
 
 ## How It's Made:
 
