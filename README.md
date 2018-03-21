@@ -1,7 +1,10 @@
-# Rock Paper Scissors
+## Rock Paper Scissors
 I turned my simple rps application into a full-stack application using node.js, mongo.db, and express. The scores are now stored in a database when a user plays and when the "submit" button is pressed after play, the user can see their data printed to the console.
 
 ![alt tag](https://github.com/lpercivalDEV/rock-paper-scissors/blob/master/rpsPreview.png)
+
+## Live Demo:
+https://full-stack-rock-paper-scissors.herokuapp.com
 
 ## How It's Made:
 
